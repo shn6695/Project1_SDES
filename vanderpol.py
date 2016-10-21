@@ -32,8 +32,8 @@ for i in range(1,5):
 labels=['$x_1$','$x_2$']
 for i in range(5):
     plt.figure(figsize=(15.0, 8.0))
-    plt.plot(t,x[i][:,0],label=labels[0])
-    plt.plot(t,x[i][:,1],label=labels[1])
+    plt.plot(t,x[i][:,0],marker='.',linestyle='--',label=labels[0])
+    plt.plot(t,x[i][:,1],marker='*',linestyle='--',label=labels[1])
     plt.legend()
     Title='State Trajectories for Damping = '+str(damp_coeff[i])+' and Initial Conditions = '+str(ic[i])
     plt.title(Title,fontweight='bold', fontsize=20)
@@ -51,5 +51,3 @@ plt.title('Phase Plots of Solutions to the Van der Pol Equation',fontweight='bol
 plt.xlabel("x_1",fontsize=18)
 plt.ylabel("x_2",fontsize=18)
 plt.savefig('Tex/vanderpol_equation.png')
-
-plt.show()
