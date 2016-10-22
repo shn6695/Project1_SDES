@@ -14,6 +14,7 @@ main :
 
 pdf : $(FILES:.pdf=.tex)
 	make 130010011.pdf
+	mv 130010011.pdf ../output/
 
 %.pdf: %.tex
 	pdflatex $<
@@ -23,7 +24,7 @@ pdf : $(FILES:.pdf=.tex)
 
 .PHONY: clean clean-all
 clean-all:
-	$(RM) $(AUXFILES) $(FILES) $(LOGFILES) $(BBLFILES) $(BLGFILES) $(OTHERS) $(PICSDEL) $(PYC) 
+	$(RM) $(AUXFILES) $(FILES) $(LOGFILES) $(BBLFILES) $(BLGFILES) $(OTHERS) $(PICSDEL) $(PYC)
 
 clean:
 	$(RM) $(AUXFILES) $(LOGFILES) $(BBLFILES) $(BLGFILES) $(OTHERS) $(PICSDEL) $(PYC)
