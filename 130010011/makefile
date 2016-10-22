@@ -1,10 +1,12 @@
-FILES := 130010011.pdf 
+FILES := 130010011.pdf
 
 main :
 	cd source && python 130010011.py
-	make paper
+	jupyter nbconvert --to html source/130010011.ipynb
+	mv source/130010011.html output/
+	make pdf
 
-paper:
+pdf:
 	cp source/Ref.bib .
 	pdflatex -output-directory output source/130010011.tex
 	bibtex output/130010011.aux
@@ -13,7 +15,7 @@ paper:
 	rm Ref.bib
 
 .PHONY: clean clean-all
-tests:
+test:
 	pytest source/test.py
 clean:
 	rm -rf output
