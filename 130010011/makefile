@@ -2,6 +2,8 @@ FILES := 130010011.pdf
 
 main :
 	cd source && python 130010011.py
+	jupyter nbconvert --to html source/130010011.ipynb
+	mv source/130010011.html output/
 	make paper
 
 paper:
