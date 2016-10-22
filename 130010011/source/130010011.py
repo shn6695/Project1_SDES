@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import os
 from scipy.integrate import odeint
 t = np.linspace(0.0,50.0, 100000)
 
@@ -27,6 +28,8 @@ ic=[[1,0.5],[3,0.5],[2,0.5],[1,0.5],[-2.5,-2]]
 x=[state_trajectories(damp[0],ic[0],t)]
 for i in range(1,5):
     x.append(state_trajectories(damp[i],ic[i],t))
+if not os.path.exists('../output'):
+    os.mkdir('../output')
 
 ##State trajectories
 labels=['$x_1$','$x_2$']
@@ -38,7 +41,7 @@ for i in range(5):
     Title='State Trajectories for Damping = '+str(damp_coeff[i])+' and Initial Conditions = '+str(ic[i])
     plt.title(Title,fontweight='bold', fontsize=20)
     plt.xlabel("Time in seconds",fontsize=18)
-    filename='vanderpol_trajectories'+str(i)+'.png'
+    filename='../output/vanderpol_trajectories'+str(i)+'.png'
     plt.savefig(filename)
 
 ## Phase Plot for all trajectories
@@ -50,4 +53,4 @@ plt.legend()
 plt.title('Phase Plots of Solutions to the Van der Pol Equation',fontweight='bold', fontsize=20)
 plt.xlabel("x_1",fontsize=18)
 plt.ylabel("x_2",fontsize=18)
-plt.savefig('vanderpol_equation.png')
+plt.savefig('../output/vanderpol_equation.png')
