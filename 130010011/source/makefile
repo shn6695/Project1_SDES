@@ -9,7 +9,7 @@ PICS := $(wildcard *.png)
 PYC := $(wildcard *.pyc)
 
 main :
-	python 130010011_code.py
+	python 130010011.py
 	make pdf
 
 pdf : $(FILES:.pdf=.tex)
@@ -23,7 +23,7 @@ pdf : $(FILES:.pdf=.tex)
 
 .PHONY: clean clean-all
 clean-all:
-	$(RM) $(AUXFILES) $(FILES) $(LOGFILES) $(BBLFILES) $(BLGFILES) $(OTHERS) $(PICSDEL) $(PYC) $(PICS)
+	$(RM) $(AUXFILES) $(FILES) $(LOGFILES) $(BBLFILES) $(BLGFILES) $(OTHERS) $(PICSDEL) $(PYC) 
 
 clean:
 	$(RM) $(AUXFILES) $(LOGFILES) $(BBLFILES) $(BLGFILES) $(OTHERS) $(PICSDEL) $(PYC)
